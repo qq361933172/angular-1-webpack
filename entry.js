@@ -8,8 +8,8 @@ app.config(function ($routeProvider) {
         .when(
             '/home',
             {
-                template: require("./home/home.html"),
-                controller: require("./home/home").home
+                template: require("./controller/iframeDemo/iframeDemo.html"),
+                controller: require("./controller/iframeDemo/iframeDemo").home
             }
         )
         .when(
@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
                 controller: require("./childPage/childPage").childPage
             }
         )
-        .otherwise('/home')
+        .otherwise('/iframeDemo')
 });
 //注册directive
 app.directive("frameBox", require("./directive/iframeBox/iframeBox").frameBox);
