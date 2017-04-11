@@ -11,7 +11,10 @@
   "devDependencies": {
     "angular": "^1.6.2",
     "angular-route": "^1.6.2",
+    "angular-ui-bootstrap": "^2.5.0",
     "axios": "^0.16.0",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.28.0",
     "file-loader": "^0.11.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
