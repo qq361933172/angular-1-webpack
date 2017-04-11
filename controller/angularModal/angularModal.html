@@ -16,7 +16,11 @@
         <button class="btn btn-warning" type="button" ng-click="$modalCtrl.cancel()">Cancel</button>
     </div>
 </script>
-<div style="display: flex;justify-content: center; align-items: center;height: 500px;">
+<div style="display: flex;flex-direction:column;justify-content: center; align-items: center;height: 500px;"><br>
     <button type="button" class="btn btn-default" ng-click="$ctrl.open('sm')">小模态框</button>
+    <br>
     <button type="button" class="btn btn-default" ng-click="$ctrl.open('large')">大模态框</button>
+    <br>
+    <div class="btn btn-default" page-to="/iframeDemo">pageTo</div>
+    <br>
 </div>
