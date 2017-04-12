@@ -9,7 +9,7 @@ var app = angular.module('app', [
 app.config(function ($routeProvider) {
     $routeProvider
         .when(
-            '/iframeDemo',
+            '/iframeDemo', //测试iframe
             {
                 template: require("./controller/iframeDemo/iframeDemo.html"),
                 controller: require("./controller/iframeDemo/iframeDemo").home
@@ -23,17 +23,25 @@ app.config(function ($routeProvider) {
             }
         )
         .when(
-            '/angularModal',
+            '/angularModal',//angular 弹框 模态框
             {
                 template: require("./controller/angularModal/angularModal.html"),
                 controller: require("./controller/angularModal/angularModal").angularModal,
                 controllerAs: "$ctrl"
             }
         )
-        .otherwise('/iframeDemo')
+        .when(
+            '/remoteValidate', //远程校验 remote validate
+            {
+                template: require("./controller/remoteValidate/remoteValidate.html"),
+                controller: require("./controller/remoteValidate/remoteValidate").remoteValidate,
+            }
+        )
+        .otherwise('/remoteValidate')
 });
 //注册controller
 app.controller("angularModal", require("./controller/angularModal/angularModal").angularModal);
 //注册directive
 app.directive("frameBox", require("./directive/iframeBox/iframeBox").frameBox);
 app.directive("pageTo", require("./directive/pageTo/pageTo").pageTo);
+app.directive("remoteValidate", require("./directive/remoteValidate/remoteValidate").remoteValidate);

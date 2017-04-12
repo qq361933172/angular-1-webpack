@@ -1,0 +1,5 @@
+<form novalidate ng-submit="saveData()" name="userForm">
+    <input type="text" remote-validate ng-model="sth" name="username"><br>
+    <p ng-show="userForm.username.$error.remoteValidate && (userForm.username.$dirty)">校验失败</p>
+    <button type="submit">submit</button>
+</form>
