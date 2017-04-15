@@ -10,8 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.6.2",
+    "angular-file-upload": "^2.5.0",
     "angular-route": "^1.6.2",
     "angular-ui-bootstrap": "^2.5.0",
+    "angularjs-dropdown-multiselect": "^1.11.8",
     "axios": "^0.16.0",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.28.0",

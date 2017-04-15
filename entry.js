@@ -2,8 +2,10 @@ require("./index.html");
 require("angular");
 require("angular-ui-bootstrap");
 require("./node_modules/bootstrap/dist/css/bootstrap.css");
+require("./node_modules/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js")
 var app = angular.module('app', [
     require("angular-route"),
+    'angularjs-dropdown-multiselect',
     "ui.bootstrap"
 ]);
 app.config(function ($routeProvider) {
@@ -37,10 +39,40 @@ app.config(function ($routeProvider) {
                 controller: require("./controller/remoteValidate/remoteValidate").remoteValidate,
             }
         )
-        .otherwise('/remoteValidate')
+        .when(
+            '/formValidate', //远程校验 remote validate
+            {
+                template: require("./controller/formValidate/formValidate.html"),
+                controller: require("./controller/formValidate/formValidate").formValidate,
+            }
+        )
+        .when(
+            '/multiselect', //远程校验 remote validate
+            {
+                template: require("./controller/multiselect/multiselect.html"),
+                controller: require("./controller/multiselect/multiselect").multiselect,
+            }
+        )
+        .when(
+            '/useLocationSearch', //远程校验 remote validate
+            {
+                template: require("./controller/useLocationSearch/useLocationSearch.html"),
+                controller: require("./controller/useLocationSearch/useLocationSearch").useLocationSearch,
+            }
+        )
+        .when(
+            '/fileUploadDemo', //远程校验 remote validate
+            {
+                template: require("./controller/fileUploadDemo/fileUploadDemo.html"),
+                controller: require("./controller/fileUploadDemo/fileUploadDemo").fileUploadDemo,
+            }
+        )
+        .otherwise('/fileUploadDemo')
 });
 //注册controller
 app.controller("angularModal", require("./controller/angularModal/angularModal").angularModal);
+app.controller("formValidate", require("./controller/formValidate/formValidate").formValidate);
+app.controller("fileUploadDemo", require("./controller/fileUploadDemo/fileUploadDemo").fileUploadDemo);
 //注册directive
 app.directive("frameBox", require("./directive/iframeBox/iframeBox").frameBox);
 app.directive("pageTo", require("./directive/pageTo/pageTo").pageTo);
