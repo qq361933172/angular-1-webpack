@@ -2,11 +2,15 @@ require("./index.html");
 require("angular");
 require("angular-ui-bootstrap");
 require("./node_modules/bootstrap/dist/css/bootstrap.css");
-require("./node_modules/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js")
+require("./node_modules/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js");
+/*require("ng-file-upload");*/
+require("angular-file-upload")
 var app = angular.module('app', [
     require("angular-route"),
     'angularjs-dropdown-multiselect',
-    "ui.bootstrap"
+    "ui.bootstrap",
+    /*"ngFileUpload",*/
+    'angularFileUpload'
 ]);
 app.config(function ($routeProvider) {
     $routeProvider
@@ -67,7 +71,14 @@ app.config(function ($routeProvider) {
                 controller: require("./controller/fileUploadDemo/fileUploadDemo").fileUploadDemo,
             }
         )
-        .otherwise('/fileUploadDemo')
+        .when(
+            '/ved', //远程校验 remote validate
+            {
+                template: require("./controller/fileUploadDemo/veryEasyDemo/ved.html"),
+                controller: require("./controller/fileUploadDemo/veryEasyDemo/ved").ved,
+            }
+        )
+        .otherwise('/ved')
 });
 //注册controller
 app.controller("angularModal", require("./controller/angularModal/angularModal").angularModal);

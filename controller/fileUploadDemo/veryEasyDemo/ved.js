@@ -1,4 +1,4 @@
-module.exports.fileUploadDemo = function ($scope, FileUploader) {
+module.exports.ved = function ($scope, FileUploader) {
     var uploader = $scope.uploader = new FileUploader({
         url: 'upload.php'
     });
@@ -20,15 +20,19 @@ module.exports.fileUploadDemo = function ($scope, FileUploader) {
         }
     });
     // CALLBACKS
+    //添加文件失败回调
     uploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
-        console.info('onWhenAddingFileFailed', item, filter, options);
+        //console.info('onWhenAddingFileFailed', item, filter, options);
     };
+    //添加文件成功回调
     uploader.onAfterAddingFile = function (fileItem) {
-        console.info('onAfterAddingFile', fileItem);
+        //console.info('onAfterAddingFile', fileItem);
     };
+    //添加所有文件回调
     uploader.onAfterAddingAll = function (addedFileItems) {
         //console.info('onAfterAddingAll', addedFileItems);
     };
+
     uploader.onBeforeUploadItem = function (item) {
         //console.info('onBeforeUploadItem', item);
     };
@@ -36,7 +40,7 @@ module.exports.fileUploadDemo = function ($scope, FileUploader) {
         //console.info('onProgressItem', fileItem, progress);
     };
     uploader.onProgressAll = function (progress) {
-       // console.info('onProgressAll', progress);
+        // console.info('onProgressAll', progress);
     };
     uploader.onSuccessItem = function (fileItem, response, status, headers) {
         //console.info('onSuccessItem', fileItem, response, status, headers);
