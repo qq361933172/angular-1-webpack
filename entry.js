@@ -77,8 +77,14 @@ app.config(function ($routeProvider) {
                 template: require("./controller/fileUploadDemo/veryEasyDemo/ved.html"),
                 controller: require("./controller/fileUploadDemo/veryEasyDemo/ved").ved,
             }
+        ).when(
+        '/uploadInModal', //远程校验 remote validate
+        {
+            template: require("./controller/uploadInModal/angularModal.html"),
+            controller: require("./controller/uploadInModal/uploadInModal").uploadInModal
+        }
         )
-        .otherwise('/ved')
+        .otherwise('/uploadInModal')
 });
 //注册controller
 app.controller("angularModal", require("./controller/angularModal/angularModal").angularModal);
