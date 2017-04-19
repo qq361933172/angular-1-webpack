@@ -77,20 +77,25 @@ app.config(function ($routeProvider) {
                 template: require("./controller/fileUploadDemo/veryEasyDemo/ved.html"),
                 controller: require("./controller/fileUploadDemo/veryEasyDemo/ved").ved,
             }
-        ).when(
-        '/uploadInModal', //远程校验 remote validate
-        {
-            template: require("./controller/uploadInModal/angularModal.html"),
-            controller: require("./controller/uploadInModal/uploadInModal").uploadInModal
-        }
         )
-        .otherwise('/uploadInModal')
+        .when(
+            '/uploadInModal', //远程校验 remote validate
+            {
+                template: require("./controller/uploadInModal/angularModal.html"),
+                controller: require("./controller/uploadInModal/uploadInModal").uploadInModal
+            }
+        )
+        .when(
+            '/testLoadingShow', //远程校验 remote validate
+            {
+                template: require("./controller/testLoadingShow/testLoadingShow.html"),
+                controller: require("./controller/testLoadingShow/testLoadingShow").testLoadingShow
+            }
+        )
+        .otherwise('/testLoadingShow')
 });
-//注册controller
-app.controller("angularModal", require("./controller/angularModal/angularModal").angularModal);
-app.controller("formValidate", require("./controller/formValidate/formValidate").formValidate);
-app.controller("fileUploadDemo", require("./controller/fileUploadDemo/fileUploadDemo").fileUploadDemo);
 //注册directive
 app.directive("frameBox", require("./directive/iframeBox/iframeBox").frameBox);
 app.directive("pageTo", require("./directive/pageTo/pageTo").pageTo);
 app.directive("remoteValidate", require("./directive/remoteValidate/remoteValidate").remoteValidate);
+app.directive("loading", require("./directive/loading/loading").loading);

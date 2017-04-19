@@ -1,0 +1,22 @@
+<style>
+    .loading {
+        width: 150px;
+        height: 150px;
+        background: red url(../../static/img/loading-6.gif) no-repeat 0 0;
+        background-size: 150px 150px;
+        position: fixed;
+        top: 30%;
+        left: 30%;
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    .show {
+        opacity: 1
+    }
+
+    .hide {
+        opacity: 0;
+    }
+</style>
+<loading show="show"></loading>
