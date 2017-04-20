@@ -92,10 +92,19 @@ app.config(function ($routeProvider) {
                 controller: require("./controller/testLoadingShow/testLoadingShow").testLoadingShow
             }
         )
-        .otherwise('/testLoadingShow')
+        .when(
+            '/inputFileUpLoad', //angular 文件上传 input type='file' 不能使用ng-change
+            {
+                template: require("./controller/inputFileUpLoad/inputFileUpLoad.html"),
+                controller: require("./controller/inputFileUpLoad/inputFileUpLoad").inputFileUpLoad
+            }
+        )
+        .otherwise('/inputFileUpLoad')
 });
 //注册directive
 app.directive("frameBox", require("./directive/iframeBox/iframeBox").frameBox);
 app.directive("pageTo", require("./directive/pageTo/pageTo").pageTo);
 app.directive("remoteValidate", require("./directive/remoteValidate/remoteValidate").remoteValidate);
 app.directive("loading", require("./directive/loading/loading").loading);
+app.directive("inputFileread", require("./directive/fileread/fileread").inputFileread);//文件上传,获取文件信息
+
